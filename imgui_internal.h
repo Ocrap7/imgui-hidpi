@@ -756,6 +756,7 @@ struct IMGUI_API ImDrawListSharedData
     float           CircleSegmentMaxError;      // Number of circle segments to use per pixel of radius for AddCircle() etc
     ImVec4          ClipRectFullscreen;         // Value for PushClipRectFullscreen()
     ImDrawListFlags InitialFlags;               // Initial flags at the beginning of the frame (it is possible to alter flags on a per-drawlist basis afterwards)
+    float           InitialFringeScale;         // Initial fringe scale according determined by io.DisplayFramebufferScale (it is possible to alter flags on a per-drawlist basis afterwards)
 
     // [Internal] Temp write buffer
     ImVector<ImVec2> TempBuffer;
