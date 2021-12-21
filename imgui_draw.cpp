@@ -370,6 +370,7 @@ ImDrawListSharedData::ImDrawListSharedData()
         ArcFastVtx[i] = ImVec2(ImCos(a), ImSin(a));
     }
     ArcFastRadiusCutoff = IM_DRAWLIST_CIRCLE_AUTO_SEGMENT_CALC_R(IM_DRAWLIST_ARCFAST_SAMPLE_MAX, CircleSegmentMaxError);
+    InitialFringeScale = 1.0f;
 }
 
 void ImDrawListSharedData::SetCircleTessellationMaxError(float max_error)
@@ -410,7 +411,7 @@ void ImDrawList::_ResetForNewFrame()
     _Path.resize(0);
     _Splitter.Clear();
     CmdBuffer.push_back(ImDrawCmd());
-    _FringeScale = 1.0f;
+    _FringeScale = _Data->InitialFringeScale;
 }
 
 void ImDrawList::_ClearFreeMemory()
@@ -426,6 +427,7 @@ void ImDrawList::_ClearFreeMemory()
     _TextureIdStack.clear();
     _Path.clear();
     _Splitter.ClearFreeMemory();
+    _FringeScale = 1.0f;
 }
 
 ImDrawList* ImDrawList::CloneOutput() const
