@@ -2320,13 +2320,9 @@ struct ImFontBuildSrcData
     int                 GlyphsHighest;      // Highest requested codepoint
     int                 GlyphsCount;        // Glyph count (excluding missing glyphs and glyphs already set by an earlier source font)
     ImBitVector         GlyphsSet;          // Glyph bit map (random access, 1-bit per codepoint. This will be a maximum of 8KB)
-<<<<<<< HEAD
-    ImVector<int>       GlyphsList;         // Glyph codepoints list (flattened version of GlyphsSet)
-=======
     ImVector<int>       GlyphsList;         // Glyph codepoints list (flattened version of GlyphsMap)
     float               Scale;
     float               InvScale;
->>>>>>> 2121ddbe (Fonts: Add ImFontConfig::Density to generate atlas texture with more details)
 };
 
 // Temporary data for one destination ImFont* (multiple source fonts can be merged into one destination ImFont)
